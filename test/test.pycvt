@@ -1,0 +1,14 @@
+[Setup]
+Converter = PyInstaller
+AppName = "test exe"
+InputFile = D:\Python\App\App_convert_py\test\test.py
+OutputDir = D:\Python\App\App_convert_py\test
+Icon = NONE
+
+[Option]
+one-file
+
+[Data]
+
+
+[Pathex]

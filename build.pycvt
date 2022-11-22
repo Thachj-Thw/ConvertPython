@@ -1,0 +1,16 @@
+[Setup]
+Converter = PyInstaller
+AppName = "Convert Python - v1.0"
+InputFile = *ThisDir*\main.py
+OutputDir = *ThisDir*\Application
+Icon = *ThisDir*\GUI\images\Logo\logoPython.ico
+
+[Option]
+one-file
+
+[Data]
+Source *ThisDir*\compiler\Keep DestDir compiler
+Source *ThisDir*\GUI\ui DestDir GUI\ui
+Source *ThisDir*\GUI\images\Logo DestDir GUI\Images\Logo
+
+[Pathex]
