@@ -1,15 +1,13 @@
-from module import Path
+from pathlib import Path
 import pickle
 import os
 
 
-cache_dir = Path(__file__).app.join("cache")
-if not os.path.isdir(cache_dir):
-    os.makedirs(cache_dir)
-
-
 class Cache(object):
-    def __init__(self, name):
+    def __init__(self, name, folder_name):
+        cache_dir = Path.home()/folder_name
+        if not os.path.isdir(cache_dir):
+            os.makedirs(cache_dir)
         self._path = os.path.join(cache_dir, name+".cache")
         if not os.path.isfile(self._path):
             with open(self._path, "wb") as f:

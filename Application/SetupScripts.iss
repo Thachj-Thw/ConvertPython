@@ -4,7 +4,7 @@
 #define MyAppName "Convert Python"
 #define MyAppVersion "1.0"
 #define MyAppPublisher "ThachThw"
-#define MyAppURL "https://github.com/Thachj-Thw"
+#define MyAppURL "https://github.com/Thachj-Thw/ConvertPython"
 #define MyAppExeName "Convert Python - v1.0.exe"
 #define MyAppAssocName MyAppName + " File"
 #define MyAppAssocExt ".pycvt"
@@ -13,7 +13,7 @@
 [Setup]
 ; NOTE: The value of AppId uniquely identifies this application. Do not use the same AppId value in installers for other applications.
 ; (To generate a new GUID, click Tools | Generate GUID inside the IDE.)
-AppId={{12A4B908-46D1-42F5-9451-F7E7ECABD6EF}
+AppId={{41CB493D-55BF-4A8F-BD9B-CD634A0B73AB}
 AppName={#MyAppName}
 AppVersion={#MyAppVersion}
 ;AppVerName={#MyAppName} {#MyAppVersion}
@@ -40,15 +40,15 @@ Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{
 
 [Files]
 Source: "D:\Python\App\App_convert_py\Application\{#MyAppExeName}"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\Python\App\App_convert_py\GUI\images\Logo\FileIcon.ico"; DestDir: "{app}/icon"; Flags: ignoreversion
+Source: "D:\Python\App\App_convert_py\GUI\images\Logo\FileIcon.ico"; DestDir: "{app}\.icon"
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 
 [Registry]
-Root: HKCR; Subkey: ".pycvt";                           ValueData: "{#MyAppName}";                    Flags: uninsdeletevalue; ValueType: string;  ValueName: ""
-Root: HKCR; Subkey: "{#MyAppName}";                     ValueData: "Program {#MyAppName}";            Flags: uninsdeletekey;   ValueType: string;  ValueName: ""
-Root: HKCR; Subkey: "{#MyAppName}\DefaultIcon";         ValueData: "{app}\{#MyAppExeName},0";                                  ValueType: string;  ValueName: ""
-Root: HKCR; Subkey: "{#MyAppName}\shell\open\command";  ValueData: """{app}\{#MyAppExeName}"" ""%1""";                         ValueType: string;  ValueName: ""
-Root: HKCR; Subkey: ".pycvt\DefaultIcon";               ValueData: """{app}\icon\FileIcon.ico""";      Flags: uninsdeletekey;   ValueType: string;  ValueName: ""
+Root: HKA; Subkey: "Software\Classes\{#MyAppAssocExt}\OpenWithProgids"; ValueType: string; ValueName: "{#MyAppAssocKey}"; ValueData: ""; Flags: uninsdeletevalue
+Root: HKA; Subkey: "Software\Classes\{#MyAppAssocKey}"; ValueType: string; ValueName: ""; ValueData: "{#MyAppAssocName}"; Flags: uninsdeletekey
+Root: HKA; Subkey: "Software\Classes\{#MyAppAssocKey}\DefaultIcon"; ValueType: string; ValueName: ""; ValueData: "{app}\.icon\FileIcon.ico"
+Root: HKA; Subkey: "Software\Classes\{#MyAppAssocKey}\shell\open\command"; ValueType: string; ValueName: ""; ValueData: """{app}\{#MyAppExeName}"" ""%1"""
+Root: HKA; Subkey: "Software\Classes\Applications\{#MyAppExeName}\SupportedTypes"; ValueType: string; ValueName: ".pycvt"; ValueData: ""
 
 [Icons]
 Name: "{autoprograms}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"

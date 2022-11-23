@@ -17,7 +17,7 @@ class Main(Events):
         self.line_number.append("  1")
         self.txe_code.verticalScrollBar().valueChanged.connect(self.line_number.verticalScrollBar().setValue)
         self.splitter.setSizes([300, 0])
-        self.__cache = Cache("data")
+        self.__cache = Cache("data", ".ConvertPython")
         self.__cache.setup(("file", lambda: self._file, self._set_file, ""))
         self.__cache.load()
         if len(sys.argv) > 1:
